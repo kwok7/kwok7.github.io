@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>标签列表 | Erin Guo</title>
+<title>父元素与子元素之间的margin-top问题(css hack)（转） | Erin Guo</title>
 <meta name="description" content="Grab life by the horns.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,12 +91,49 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="tag-list-title">标签列表</h2>
-          <div class="tags-container">
+          <div class="post-detail">
+            <h2 class="post-title">父元素与子元素之间的margin-top问题(css hack)（转）</h2>
+            <div class="post-date">2019-09-07</div>
             
-              <a class="tag" href="https://kwok7.github.io//tag/c75NDBKFG">Gridea</a>
+            <div class="post-content">
+              <p>点评：给子元素盒子一个垂直外边距margin-top,父元素盒子也会往下走margin-top的值，遇到此问题的朋友可以参考下本文或许会有意想不到的收获<br>
+hack：<br>
+父元素的盒子包含一个子元素盒子，给子元素盒子一个垂直外边距margin-top,父元素盒子也会往下走margin-top的值，而子元素和父元素的边距则没有发生变化。<br>
+<img src="https://kwok7.github.io//post-images/1567785306121.jpg" alt=""><br>
+html代码：</p>
+<p>复制代码代码如下:</p>
+<div class="box1"> 
+<div class="box2"></div> 
+</div> 
+<p>css样式：</p>
+<p>复制代码代码如下:<br>
+.box1{height:200px;width:200px;background:gray;}<br>
+.box2{height:100px;width:100px;background:gold;margin-top:50px;}</p>
+<p>解决方法：<br>
+1、修改父元素的高度，增加padding-top样式模拟（padding-top：1px；常用）<br>
+2、为父元素添加overflow：hidden；样式即可（完美）<br>
+3、为父元素或者子元素声明浮动（float：left；可用）<br>
+4、为父元素添加border（border:1px solid transparent可用）<br>
+5、为父元素或者子元素声明绝对定位<br>
+详细出处参考：http://www.jb51.net/css/75789.html</p>
+
+            </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://kwok7.github.io//post/hello-gridea">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
+
         </div>
       </div>
     </div>
